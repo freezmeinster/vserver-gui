@@ -5,10 +5,8 @@
 #   
 #  Untuk info lebih lanjut silahkan kunjungi http://bramandityo.com
 
-import os,socket,shutil,ConfigParser  
+import os,socket,shutil,cherrypy
 from config_changer import change_sshd_config
-
-
 
 
 V_PREFIX = os.popen("vserver-info APPDIR SYSINFO | grep \"prefix:\" | cut -d \":\" -f2").read().strip()
@@ -17,11 +15,10 @@ V_CONFDIR = os.path.join(V_PREFIX,'etc/vservers')
 API_DIR = os.path.dirname( os.path.realpath( __file__ ) )
 
 HOSTNAME = socket.gethostname()
-config = ConfigParser.ConfigParser()
-config.readfp(open(""+API_DIR+"/vapi.conf"))
-V_SNAPSHOT = config.get('snapshot','s_store')
-V_BASEPKG = config.get('vserver','v_basepkg')
-V_IPPREFIX = config.get('vserver','v_ipprefix')
+
+V_SNAPSHOT = cherrypy.config['snapshot.store']
+V_BASEPKG = cherrypy.config['vserver.basepkg']
+V_IPPREFIX = cherrypy.config['vserver.ipprefix']
 ALL_IP = [ V_IPPREFIX+str(x) for x in range(2,255)]
 
 class Vps:

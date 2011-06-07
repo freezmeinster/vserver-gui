@@ -9,5 +9,5 @@ class Root:
         
     @cherrypy.expose
     def dashboard(self,**kwargs):
-        data = { 'nguk' : 'syalala' }
+        data = { 'config' : cherrypy.config }
         return render("dashboard.html",data)
