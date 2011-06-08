@@ -1,4 +1,4 @@
-import cherrypy
+from lib import cherrypy
 from lib.template_loader import render
 
 class Root:
