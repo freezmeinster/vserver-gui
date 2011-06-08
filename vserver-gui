@@ -3,7 +3,7 @@
 import os.path,sys
 sys.path.insert(0,os.path.join(os.path.dirname(__file__),'lib'))
 
-from controller import main
+from controller import main,user,factory
 import cherrypy
 
 #initial Configuration for Vserver-GUI
@@ -12,8 +12,10 @@ cherrypy.config.update({ 'tools.staticdir.root' : os.path.dirname(os.path.realpa
 cherrypy.config.namespaces('vserver') 
 
 
-root = main.Root()
-root.apa = main.Root()
+root = main.Controller()
+root.user = user.Controller()
+root.setting = main.Controller()
+root.factory = factory.Controller()
 
 
 
