@@ -1,4 +1,4 @@
-"""Native adapter for serving CherryPy via its builtin server."""
+""Native adapter for serving CherryPy via its builtin server."""
 
 import logging
 import sys
