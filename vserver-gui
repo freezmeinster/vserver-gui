@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 
-import cherrypy
+import lib.cherrypy as cherrypy
 import os.path
 from controller import main
 
 #initial Configuration for Vserver-GUI
 config = os.path.join(os.path.dirname(__file__),'vserver-gui.conf')
 cherrypy.config.update({ 'tools.staticdir.root' : os.path.dirname(os.path.realpath(__file__)) })                       
-cherrypy.config.namespaces('vserver') 
 
 
 root = main.Root()
