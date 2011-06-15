@@ -3,7 +3,7 @@
        <section>
                 <header class="container_12 clearfix">
                     <div class="grid_12">
-                        <h1>Wizard</h1>
+                        <h1>Virtual Machine Factory</h1>
                     </div>
                 </header>
                 <section class="container_12 clearfix">
@@ -15,8 +15,8 @@
                                 
                                 <nav>
                                     <ul id="status"> 
-                                        <li class="active"><strong>1.</strong> Create Account</li> 
-                                        <li><strong>2.</strong> Contact Information</li> 
+                                        <li class="active"><strong>1.</strong>System Specification</li> 
+                                        <li><strong>2.</strong> System Information</li> 
                                         <li><strong>3.</strong> Finalize</li> 
                                     </ul>
                                 </nav>
@@ -28,8 +28,8 @@
                          
                                         <header> 
                                             <h2>
-                                                <strong>Step 1: </strong> Account Information
-                                                <em>Enter your login information:</em> 
+                                                <strong>Step 1: </strong> System Specification
+                                                <em>Enter your System Specification here:</em> 
                                             </h2>
                                         </header> 
 
@@ -38,33 +38,33 @@
                                                 <!-- email --> 
                                                 <li class="required"> 
                                                     <label> 
-                                                        <strong>1.</strong> Enter Your Email Address <span>*</span><br /> 
+                                                        <strong>1.</strong> Enter Your Virtual Machine Name <span>*</span><br /> 
                                                         <input type="text" class="full" name="email" required />
-                                                        <em>Your password will be sent to this address. Your address will not made public.</em> 
                                                     </label> 
                                                 </li> 
                              
                                                 <!-- username --> 
-                                                <li> 
-                                                    <label> 
-                                                        <strong>2.</strong> Pick a username <br /> 
-                                                        <input type="text" class="full" name="username" /> 
-                                                        <em>Your preferred username to be used when logging in.</em> 
-                                                    </label> 
-                                                </li> 
-                             
-                                                <!-- password --> 
                                                 <li class="double"> 
-
                                                     <label> 
-                                                        <strong>3.</strong> Choose a Password <span>*</span><br /> 
-                                                        <input type="password" class="full" name="password" required /> 
-                                                        <em>Must be at least 8 characters long.</em> 
+                                                        <strong>2.</strong> Choose a memory for your Virtual Machine <span>*</span><br /> 
+                                                        <select name="memory" class="selector hover" style="opacity:0;" required="">
+                                                            <option value="">-- please choose --</option>
+                                                            <option value="64">64Mb</option>
+                                                            <option value="128">128Mb</option>
+                                                            <option value="265">256Mb</option>
+                                                            <option value="384">384Mb</option>
+                                                            <option value="512">512Mb</option>
+                                                            <option value="896">896Mb</option>
+                                                            <option value="1024">1024Mb</option>
+                                                        </select>
                                                     </label> 
+               
 
                                                     <label> 
-                                                        Verify Password <span>*</span><br /> 
-                                                        <input type="password" class="full" name="password1" required /> 
+                                                        <strong>3.</strong> Choose a IP for your Virtual Machine <span>*</span><br /> 
+                                                        <select name="memory" class="selector hover" style="opacity:0;" required="">
+                                                        <option>asdfasdf</option>
+                                                        </select>
                                                     </label> 
                                                 </li> 
                                             </ul>
