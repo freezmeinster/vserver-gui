@@ -1,9 +1,9 @@
-{% include "head.html" %}
-{% include "sidebar.html" %}
+{% extends 'base.html' %}
+{% block content %}
        <section>
                 <header class="container_12 clearfix">
                     <div class="grid_12">
-                        <h1>Virtual Machine Factory</h1>
+                        <h1>Cloud Factory</h1>
                     </div>
                 </header>
                 <section class="container_12 clearfix">
@@ -38,7 +38,7 @@
                                                 <!-- email --> 
                                                 <li class="required"> 
                                                     <label> 
-                                                        <strong>1.</strong> Enter Your Virtual Machine Name <span>*</span><br /> 
+                                                        <strong>1.</strong> Enter Your Cloud Name <span>*</span><br /> 
                                                         <input type="text" class="full" name="email" required />
                                                     </label> 
                                                 </li> 
@@ -46,7 +46,7 @@
                                                 <!-- username --> 
                                                 <li class="double"> 
                                                     <label> 
-                                                        <strong>2.</strong> Choose a memory for your Virtual Machine <span>*</span><br /> 
+                                                        <strong>2.</strong> Choose a memory for your Cloud <span>*</span><br /> 
                                                         <select name="memory" class="selector hover" style="opacity:0;" required="">
                                                             <option value="">-- please choose --</option>
                                                             <option value="64">64Mb</option>
@@ -61,7 +61,7 @@
                
 
                                                     <label> 
-                                                        <strong>3.</strong> Choose a IP for your Virtual Machine <span>*</span><br /> 
+                                                        <strong>3.</strong> Choose an IP for your Cloud <span>*</span><br /> 
                                                         <select name="memory" class="selector hover" style="opacity:0;" required="">
                                                         <option>asdfasdf</option>
                                                         </select>
@@ -155,4 +155,4 @@
                          
                     </div>
                 </section>
-{% include "footer.html" %}
+{% endblock %}

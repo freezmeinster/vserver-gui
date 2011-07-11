@@ -11,11 +11,6 @@ import cherrypy
 #initial Configuration for Vserver-GUI
 config = os.path.join(os.path.dirname(__file__),'vserver-gui.conf')
 cherrypy.config.update({ 'tools.staticdir.root' : os.path.dirname(os.path.realpath(__file__)) })                       
-cherrypy.config.namespaces('vserver') 
-
-bram = User('Bramandityo','asdfasdf','bram')
-db_engine.session.add(bram)
-db_engine.session.commit()
 
 
 root = main.Controller()

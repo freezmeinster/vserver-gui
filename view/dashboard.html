@@ -1,5 +1,5 @@
-{% include "head.html" %}
-{% include "sidebar.html" %}
+{% extends 'base.html' %}
+{% block content %}
             <section>
                 <header class="container_12 clearfix">
                     <div class="grid_12">
@@ -24,5 +24,4 @@
                     
                     <div class="clear"></div>
                 </section>
-                
-{% include "footer.html" %}
+{% endblock %}                
