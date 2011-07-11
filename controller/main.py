@@ -5,9 +5,8 @@ class Controller:
     
     @cherrypy.expose
     def index(self):
-        return render("login.html")
+        return render("login.html",url_name='login')
         
     @cherrypy.expose
     def dashboard(self,**kwargs):
-        data = { 'config' : cherrypy.config }
-        return render("dashboard.html",data)
+        return render("dashboard.html",url_name='dashboard')

@@ -32,7 +32,7 @@
 <link rel="stylesheet" media="screen" href="/public/css/grids.css" />
 <link rel="stylesheet" media="screen" href="/public/css/style.css" />
 <link rel="stylesheet" media="screen" href="/public/css/jquery.uniform.css" />
-<link rel="stylesheet" media="screen" href="/public/css/themes/dark/style.css" />
+<link rel="stylesheet" media="screen" href="/public/css/themes/lightblue/style.css" />
 <link href="/public/css/scrollable-wizard.css" media="screen" rel="stylesheet">
 
 <!-- jQplot CSS -->
@@ -94,11 +94,11 @@
             <aside>
                 <nav>
                     <ul>
-                        <li class="current"><a href="/dashboard">Dashboard</a></li>
-                        <li><a href="/factory">Cloud Factory</a></li>
-                        <li><a href="">Resource Meter</a></li>
-                        <li><a href="">Configuration</a></li>
-                        <li><a href="">Log</a></li>
+                        <li class="{% if current_url == 'dashboard' %}current{% endif%}"><a href="/dashboard">Dashboard</a></li>
+                        <li class="{% if current_url == 'factory' %}current{% endif%}"><a href="/factory">Cloud Factory</a></li>
+                        <li class="{% if current_url == 'resource' %}current{% endif%}"><a href="/resource">Resource Meter</a></li>
+                        <li class="{% if current_url == 'configuration' %}current{% endif%}"><a href="/configuration">Configuration</a></li>
+                        <li class="{% if current_url == 'log' %}current{% endif%}"><a href="/log">Log</a></li>
                     </ul>
                 </nav>
                 <nav>
@@ -113,7 +113,7 @@
         {% endblock %}
                    <footer class="container_12 clearfix">
                     <div class="grid_12">
-                        Copyright &copy; 2011.{{ nguk }} <a target="_blank" href="http://themeforest.net/user/vivantdesigns?ref=vivantdesigns">VivantDesigns</a>
+                        Copyright &copy; 2011.<a target="blank" href="http://igoscenter.fpmipa.upi.edu">POSS UPI</a> & <a href="">LabNet</a>
                     </div>
                 </footer>
             </section>
