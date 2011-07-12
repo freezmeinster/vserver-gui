@@ -4,14 +4,18 @@ import os.path,sys
 sys.path.insert(0,os.path.join(os.path.dirname(__file__),'lib'))
 
 from model.user import User
+from vapi import vapi
 from lib import db_engine
 from controller import main,user,factory,resource,log,configuration
 import cherrypy
 
 #initial Configuration for Vserver-GUI
 config = os.path.join(os.path.dirname(__file__),'vserver-gui.conf')
-cherrypy.config.update({ 'tools.staticdir.root' : os.path.dirname(os.path.realpath(__file__)) })                       
-
+cherrypy.config.update({ 
+    'tools.staticdir.root' : os.path.dirname(os.path.realpath(__file__)),
+    'server.allip' : vapi.ALL_IP
+     })                       
+print cherrypy.server.socket_host
 
 root = main.Controller()
 root.user = user.Controller()
@@ -22,7 +26,6 @@ root.configuration = configuration.Controller()
 root.log = log.Controller()
 
 
-if __name__ == '__main__':
-    cherrypy.quickstart(root, config=config)
-else:
-    cherrypy.tree.mount(root, config=config)
+cherrypy.quickstart(root, config=config)
+
+#cherrypy.tree.mount(root, config=config)

@@ -5,9 +5,9 @@
 #   
 #  Untuk info lebih lanjut silahkan kunjungi http://bramandityo.com
 
-import os,socket,shutil,cherrypy
+import os,socket,shutil
 from config_changer import change_sshd_config
-
+import cherrypy
 
 V_PREFIX = os.popen("vserver-info APPDIR SYSINFO | grep \"prefix:\" | cut -d \":\" -f2").read().strip()
 V_ROOTDIR = os.popen("vserver-info APPDIR SYSINFO | grep \"Rootdir:\" | cut -d \":\" -f2").read().strip()
@@ -16,10 +16,10 @@ API_DIR = os.path.dirname( os.path.realpath( __file__ ) )
 
 HOSTNAME = socket.gethostname()
 
-V_SNAPSHOT = cherrypy.config['snapshot.store']
-V_BASEPKG = cherrypy.config['vserver.basepkg']
-V_IPPREFIX = cherrypy.config['vserver.ipprefix']
-ALL_IP = [ V_IPPREFIX+str(x) for x in range(2,255)]
+V_SNAPSHOT = "/vserver-snapshot"
+V_BASEPKG = "/home/bahan"
+V_IPPREFIX = "192.168.70."
+ALL_IP = [ V_IPPREFIX+str(x) for x in range(2,254)]
 
 class Vps:
     
@@ -45,8 +45,8 @@ class Vps:
     def get_conf(self):
         if self.on_server == True :
             vdir = os.path.join(V_CONFDIR,self.nama)      
-            self.ip = open(vdir+'/interfaces/0/ip','r').read().strip()
-            self.memory = open(vdir+'/cgroup/memory.limit_in_bytes','r').read().strip()
+            self.ip = open(vdir+'/interfaces/0/ip','r').read().strip().replace('\n','')
+            self.memory = open(vdir+'/cgroup/memory.limit_in_bytes','r').read().strip().replace('\n','')
         elif self.on_server == False :
             return "VPS %s tidak ada" % self.nama 
 	    
@@ -78,7 +78,7 @@ class Vps:
     def get_stat(self):
 	pass
 
-class VpsServer:	
+class VpsServer:
     vps_obj= []
 
     def fetch_all(self):
@@ -98,7 +98,9 @@ class VpsServer:
 	    VPS.get(vps)
 	    if VPS.on_server :
 		VPS.get_conf()
-		ALL_IP.remove(VPS.ip)
+		ip = VPS.ip
+		ALL_IP.remove(ip)
+
 	
 	return ALL_IP
     
