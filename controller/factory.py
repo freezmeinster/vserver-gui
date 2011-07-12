@@ -14,16 +14,18 @@ class Controller:
         return render("factory/index.html",data,url_name='factory')
     
     @cherrypy.expose
-    def build(self,name,ip,memory):
+    def build(self,name,ip,memory,passwd1,passwd2):
         class BuildVps( threading.Thread ):
             def run(self):
-                vps = VpsFactory(ip=self.ip,nama=self.nama,memory=self.memory)
+                vps = VpsFactory(ip=self.ip,nama=self.nama,memory=self.memory,password=self.password)
                 vps.save()
+        
+        if passwd1 == passwd2 :        
+            thread = BuildVps()
+            thread.ip = ip
+            thread.nama = name
+            thread.memory = memory
+            thread.password = passwd1
+            thread.start()
                 
-        thread = BuildVps()
-        thread.ip = ip
-        thread.nama = name
-        thread.memory = memory
-        thread.start()
-                
-        return cherrypy.HTTPRedirect("/dashboard")
+        return cherrypy.HTTPRedirect('/dashboard')

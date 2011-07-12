@@ -112,11 +112,13 @@ class VpsFactory:
     ip_list = vps_server.get_available_ip()
     memory = None
     nama = None
+    password = None
 
     def __init__(self,**kwargs):
         self.nama = kwargs['nama']
         self.memory = kwargs['memory']
         self.ip = kwargs['ip']
+        self.password = kwargs['password']
     
     def valid_ip(self,ip):
 	if ip in self.ip_list :
@@ -185,7 +187,7 @@ class VpsFactory:
 	
 	os.chdir(os.path.join(home,'etc/rc.d'))
 	os.system("patch -p 1 < "+os.path.join(API_DIR,'slackware.patch')+"")
-	old_password = os.popen("openssl passwd "+self.nama+"").read().strip()
+	old_password = os.popen("openssl passwd "+self.password+"").read().strip()
 	os.popen("chroot "+home+" /usr/sbin/usermod -p \""+old_password+"\" root") 
 	
 
