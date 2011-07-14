@@ -28,4 +28,3 @@ root.log = log.Controller()
 
 cherrypy.quickstart(root, config=config)
 
-#cherrypy.tree.mount(root, config=config)

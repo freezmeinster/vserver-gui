@@ -1,5 +1,6 @@
 import cherrypy
-from lib.template_loader import render
+from template_loader import render
+from vapi.vapi import VpsServer
 
 class Controller:
     
@@ -9,4 +10,8 @@ class Controller:
         
     @cherrypy.expose
     def dashboard(self,**kwargs):
-        return render("dashboard.html",url_name='dashboard')
+        vserver = VpsServer()
+        data = {
+                'list_vps' : vserver.vps_obj
+            }
+        return render("dashboard.html",data,url_name='dashboard')

@@ -80,15 +80,13 @@ class Vps:
 
 class VpsServer:
     vps_obj= []
-
-    def fetch_all(self):
-	vps_list = os.listdir(V_ROOTDIR)
-	vps_list.remove('.pkg')
-	for vps in vps_list :
-	    VPS = Vps()
-	    VPS.get(vps)
-	    VPS.get_conf()
-	    self.vps_obj.append(VPS)
+    vps_list = os.listdir(V_ROOTDIR)
+    vps_list.remove('.pkg')
+    for vps in vps_list :
+        VPS = Vps()
+	VPS.get(vps)
+	VPS.get_conf()
+	vps_obj.append(VPS)
 	    
     def get_available_ip(self):
 	vps_list = os.listdir(V_ROOTDIR)

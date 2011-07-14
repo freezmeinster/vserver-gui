@@ -57,6 +57,16 @@
 <script src="js/html5.js"></script>
 <script type="text/javascript" src="js/selectivizr.js"></script>
 <![endif]-->
+<script src="/public/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write("<script src='/public/js/jquery.min.js'>\x3C/script>")</script>
+    <script type="text/javascript" src="/public/js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="/public/js/jquery.uniform.min.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/PIE.js"></script>
+    <script type="text/javascript" src="js/ie.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="/public/js/global.js"></script>
+
 
 </head>
 <body style="overflow: hidden;">
@@ -64,7 +74,7 @@
 
         <script type = "text/javascript"> 
             document.write("<div id='loading-container'><p id='loading-content'>" +
-                           "<img id='loading-graphic' width='16' height='16' src='images/ajax-loader-eeeeee.gif' /> " +
+                           "<img id='loading-graphic' width='16' height='16' src='/public/images/ajax-loader-big-000000.gif' /> " +
                            "Loading...</p></div>");
         </script> 
 
@@ -101,13 +111,6 @@
                         <li class="{% if current_url == 'log' %}current{% endif%}"><a href="/log">Log</a></li>
                     </ul>
                 </nav>
-                <nav>
-                    <h2>Applications</h2>
-                    <ul>
-                        <li><a href="calendar.html">Calendar</a></li>
-                        <li><a href="wysiwyg.html">WYSIWYG Editor</a></li>
-                    </ul>
-                </nav>
             </aside>
         {% block content %}
         {% endblock %}
@@ -122,16 +125,8 @@
     </div>
     
     <!-- MAIN JAVASCRIPTS -->
-    <script src="/public/js/jquery.min.js"></script>
-    <script>window.jQuery || document.write("<script src='/public/js/jquery.min.js'>\x3C/script>")</script>
-    <script type="text/javascript" src="/public/js/jquery.tools.min.js"></script>
-    <script type="text/javascript" src="/public/js/jquery.uniform.min.js"></script>
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/PIE.js"></script>
-    <script type="text/javascript" src="js/ie.js"></script>
-    <![endif]-->
-
-    <script type="text/javascript" src="/public/js/global.js"></script>
+    
+    
     <!-- MAIN JAVASCRIPTS END -->
 
     <!-- LOADING SCRIPT -->
@@ -143,6 +138,7 @@
         });
     });
     </script>
+    
     <!-- LOADING SCRIPT -->
     
     <!-- jQplot SETUP -->

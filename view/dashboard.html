@@ -1,26 +1,50 @@
 {% extends 'base.html' %}
 {% block content %}
+<link rel="stylesheet" media="screen" href="/public/lib/datatables/css/cleanslate.css" />
+<script type="text/javascript" src="/public/lib/datatables/js/jquery.dataTables.js"></script> 
+<script>
+$(document).ready(function() {
+        $('#example').dataTable({
+            "sPaginationType": "full_numbers"
+        });
+    });
+</script>
             <section>
                 <header class="container_12 clearfix">
                     <div class="grid_12">
                         <h1>Dashboard</h1>
                     </div>
                 </header>
-                <section class="container_12 clearfix">
-                                
-                    <section class="portlet grid_12 leading">
-                        <header>
-                            <h2>Header styles</h2>
-                        </header>
-                        <section>
-                            <h1>Header 1</h1>
-                            <h2>Header 2</h2>
-                            <h3>Header 3</h3>
-                            <h4>Header 4</h4>
-                            <h5>Header 5</h5>
-                            <h6>Header 6</h6>
-                        </section>
-                    </section>
+               <section class="container_12 clearfix">
+                    <div class="grid_12">
+                        <div id="demo" class="clearfix"> 
+                          <table class="display" id="example">
+                              <thead>
+                                  <tr>
+                                      <th>Cloud Name</th>
+                                      <th>IP</th>
+                                      <th>Base Memory</th>
+                                      <th>Status</th>
+                                      <th>Action</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  {% for vps in list_vps %}
+                                  <tr class="gradeX">
+                                      <td>{{ vps.nama }}</td>
+                                      <td>{{ vps.ip }}</td>
+                                      <td>{{ vps.memory }}</td>
+                                      <td class="center">ON</td>
+                                      <td class="center">
+                                          <button>Edit</button>
+                                          <button>Delete</button>
+                                          <button>Stop</button>
+                                      </td>
+                                  </tr>
+                                  {% endfor %}
+                              </tbody>
+                          </table>
+                          </div>
                     
                     <div class="clear"></div>
                 </section>
