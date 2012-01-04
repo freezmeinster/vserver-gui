@@ -27,8 +27,13 @@
 						<td>{{ vps.memory }}</td>
 						<td>{{ vps.context }}</td>
                                                 <td>{{ vps.ip }}</td>
-						<td>{{ vps.status }}</td>
-						<td class="center">X</td>
+						<td class="center">{{ vps.get_stat() }}</td>
+						<td>
+                                                    {% if vps.get_stat() == 'Sleep' %}
+                                                    <a title="i_eject" class="btn i_eject"></a></a>
+                                                    <a title="i_play" class="btn i_play"></a>
+                                                    {% endif %}
+                                                </td>
                                         </tr>
                                     {% endfor %}
 					<tfoot>

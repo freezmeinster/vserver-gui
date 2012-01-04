@@ -77,11 +77,10 @@ class Vps:
 	
     def get_stat(self):
 	run = os.path.exists(self.vdir+'/run')
-	print self.vdir+'/run'
 	if run == True :
-	    self.status = 'Running'
+	    return "Running"
 	elif run == False :
-	    self.status = "Sleep"
+	    return "Sleep"
 
 class VpsServer:
     vps_obj= list()

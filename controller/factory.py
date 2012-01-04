@@ -20,6 +20,10 @@ class Controller:
         return render('factory/new.html')
     
     @cherrypy.expose
+    def running(self):
+        return render("factory/running.html")
+    
+    @cherrypy.expose
     def build(self,name,ip,memory,passwd1,passwd2):
         class BuildVps( threading.Thread ):
             def run(self):
