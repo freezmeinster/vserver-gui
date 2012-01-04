@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+		<section id="content">
+			
+			<div class="g12">
+			<h1>Forms <span><a href="doc-form.html" class="small">Documentation</a></span></h1>
+			<p>Full featured forms handle all of your data<br>
+			Looks good with tableless, schematic markup.</p>
+			
+
+				<form id="form" action="submit.php" method="post" autocomplete="off">
+				
+					<fieldset>
+						<label>Required Fields</label>
+						<section><label for="required_field">Required Text Field</label>
+							<div><input type="text" id="required_field" name="required_field" required></div>
+						</section>
+						<section><label for="required_field_msg">Required Text Field with custom error message</label>
+							<div><input type="text" id="required_field_msg" name="required_field_msg" required data-errortext="This is an custom error text!">
+							<br><span>use <code>data-errortext="This is an custom error text!"</code> for custom message</span>
+							</div>
+						</section>
+						<section><label for="required_valid_field">Required Field with validation</label>
+							<div><input type="text" id="required_valid_field" name="required_valid_field" required data-regex="^OK$" class="w_10">
+							</div>
+						</section>
+						<section>
+							<div>
+								<input type="checkbox" id="agreed" data-errortext="This is mandatory!" required><label for="agreed">I agree that this form is awesome ;)</label>
+							</div>
+						</section>
+						<section>
+							<div><button>Submit</button></div>
+						</section>
+					</fieldset>
+				</form>	
+				</div>
+		</section>
+{% endblock %}

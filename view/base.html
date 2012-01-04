@@ -1,190 +1,96 @@
-<!DOCTYPE html>
-<!--[if IE 7 ]>   <html lang="en" class="ie7 lte8"> <![endif]--> 
-<!--[if IE 8 ]>   <html lang="en" class="ie8 lte8"> <![endif]--> 
-<!--[if IE 9 ]>   <html lang="en" class="ie9"> <![endif]--> 
-<!--[if gt IE 9]> <html lang="en"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
-
+<!doctype html>
+<html lang="en-us">
 <head>
-<meta charset="utf-8">
-<!--[if lt IE 9 ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-
-<!-- iPad Settings -->
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> 
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0">
-<!-- iPad End -->
-
-<title>Computer Science Cloud Service</title>
-
-<link rel="shortcut icon" href="favicon.html">
-
-<!-- iOS ICONS -->
-<link rel="apple-touch-icon" href="touch-icon-iphone.html" />
-<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.html" />
-<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.html" />
-<link rel="apple-touch-startup-image" href="touch-startup-image.html">
-<!-- iOS ICONS END -->
-
-<!-- STYLESHEETS -->
-
-<link rel="stylesheet" media="screen" href="/public/css/reset.css" />
-<link rel="stylesheet" media="screen" href="/public/css/grids.css" />
-<link rel="stylesheet" media="screen" href="/public/css/style.css" />
-<link rel="stylesheet" media="screen" href="/public/css/jquery.uniform.css" />
-<link rel="stylesheet" media="screen" href="/public/css/themes/lightblue/style.css" />
-<link href="/public/css/scrollable-wizard.css" media="screen" rel="stylesheet">
-
-<!-- jQplot CSS -->
-<link rel="stylesheet" media="screen" href="/public/lib/jqplot/jquery.jqplot.min.css" />
-<!-- jQplot CSS END -->
-
-<!--[if lt IE 9]>
-<link rel="stylesheet" media="screen" href="css/ie.css" />
-<![endif]-->
-
-<style type = "text/css">
-    #loading-container {position: absolute; top:50%; left:50%;}
-    #loading-content {width:800px; text-align:center; margin-left: -400px; height:50px; margin-top:-25px; line-height: 50px;}
-    #loading-content {font-family: "Helvetica", "Arial", sans-serif; font-size: 18px; color: black; text-shadow: 0px 1px 0px white; }
-    #loading-graphic {margin-right: 0.2em; margin-bottom:-2px;}
-    #loading {background-color: #eeeeee; height:100%; width:100%; overflow:hidden; position: absolute; left: 0; top: 0; z-index: 99999;}
-</style>
-
-<!-- STYLESHEETS END -->
-
-<!--[if lt IE 9]>
-<script src="js/html5.js"></script>
-<script type="text/javascript" src="js/selectivizr.js"></script>
-<![endif]-->
-<script src="/public/js/jquery.min.js"></script>
-    <script>window.jQuery || document.write("<script src='/public/js/jquery.min.js'>\x3C/script>")</script>
-    <script type="text/javascript" src="/public/js/jquery.tools.min.js"></script>
-    <script type="text/javascript" src="/public/js/jquery.uniform.min.js"></script>
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/PIE.js"></script>
-    <script type="text/javascript" src="js/ie.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="/public/js/global.js"></script>
-
-
+	<meta charset="utf-8">
+	
+	<title>Net Lab Virtual Server Manager</title>
+	<link rel="stylesheet" href="/public/css/font.css">
+	<link rel="stylesheet" href="/public/css/style.css">
+	<link rel="shortcut icon" href="/public/css/images/favicon.png" type="image/x-icon" />
+	<link rel="stylesheet" href="/public/css/light/theme.css" id="themestyle">
+	
+	<!--[if lt IE 9]>
+	<script src="/public/js/html5.js"></script>
+	<link rel="stylesheet" href="/public/css/ie.css">
+	<![endif]-->
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+	<script src="/public/js/jquery.min.js"></script>
+	<script src="/public/js/jquery-ui.min.js"></script>
+	<script src="/public/js/functions.js"></script>
+		
+	<!-- all Third Party Plugins -->
+	<script src="/public/js/plugins.js"></script>
+	<script src="/public/js/editor.js"></script>
+	<script src="/public/js/calendar.js"></script>
+	<script src="/public/js/flot.js"></script>
+	<script src="/public/js/elfinder.js"></script>
+	<script src="/public/js/datatables.js"></script>
+	
+	<!-- all Whitelabel Plugins -->
+	<script src="/public/js/wl_Alert.js"></script>
+	<script src="/public/js/wl_Autocomplete.js"></script>
+	<script src="/public/js/wl_Breadcrumb.js"></script>
+	<script src="/public/js/wl_Calendar.js"></script>
+	<script src="/public/js/wl_Chart.js"></script>
+	<script src="/public/js/wl_Color.js"></script>
+	<script src="/public/js/wl_Date.js"></script>
+	<script src="/public/js/wl_Editor.js"></script>
+	<script src="/public/js/wl_File.js"></script>
+	<script src="/public/js/wl_Dialog.js"></script>
+	<script src="/public/js/wl_Fileexplorer.js"></script>
+	<script src="/public/js/wl_Form.js"></script>
+	<script src="/public/js/wl_Gallery.js"></script>
+	<script src="/public/js/wl_Number.js"></script>
+	<script src="/public/js/wl_Password.js"></script>
+	<script src="/public/js/wl_Slider.js"></script>
+	<script src="/public/js/wl_Store.js"></script>
+	<script src="/public/js/wl_Time.js"></script>
+	<script src="/public/js/wl_Valid.js"></script>
+	<script src="/public/js/wl_Widget.js"></script>
+	
+	<!-- configuration to overwrite settings -->
+	<script src="/public/js/config.js"></script>
+		
+	<!-- the script which handles all the access to plugins etc... -->
+	<script src="/public/js/script.js"></script>
+	</script>
+	
+	
 </head>
-<body style="overflow: hidden;">
-    <div id="loading"> 
+<body>
+				<div id="pageoptions"></div>
 
-        <script type = "text/javascript"> 
-            document.write("<div id='loading-container'><p id='loading-content'>" +
-                           "<img id='loading-graphic' width='16' height='16' src='/public/images/ajax-loader-big-000000.gif' /> " +
-                           "Loading...</p></div>");
-        </script> 
+			<header>
+		<div id="logo">
+			<a href="test.html">Logo Here</a>
+		</div>
+		<div id="header">
+			<ul id="headernav">
+				<li><ul>
+					<li><a href="/resource/about">About Me</a></li>
+					<li><a href="/resource/status">Server Status</a></li>
+				</ul></li>
+			</ul>
+		</div>
+	</header>
 
-    </div> 
-
-    <div id="wrapper">
-        <header>
-            <h1><a href="/dashboard">Computer Science Cloud Service</a></h1>
-            <nav>
-                                <ul id="main-navigation" class="clearfix"> 
-  
-                    <li class="fr dropdown"> 
-                        <a href="#" class="with-profile-image"><span><img src="/public/images/profile-image.png" /></span>Administrator</a> 
-                        <ul> 
-                            <li><a href="/setting">Settings</a></li> 
-                            <li><a href="/user">Users</a></li> 
-                            <li><a href="#">Groups</a></li> 
-                            <li><a href="/">Signout</a></li> 
-                        </ul>
-                    </li> 
-                                </ul> 
-            </nav>
-        </header>
-         
-        <section>
-        
-            <aside>
-                <nav>
-                    <ul>
-                        <li class="{% if current_url == 'dashboard' %}current{% endif%}"><a href="/dashboard">Dashboard</a></li>
-                        <li class="{% if current_url == 'factory' %}current{% endif%}"><a href="/factory">Cloud Factory</a></li>
-                        <li class="{% if current_url == 'resource' %}current{% endif%}"><a href="/resource">Resource Meter</a></li>
-                        <li class="{% if current_url == 'configuration' %}current{% endif%}"><a href="/configuration">Configuration</a></li>
-                        <li class="{% if current_url == 'log' %}current{% endif%}"><a href="/log">Log</a></li>
-                    </ul>
-                </nav>
-            </aside>
-        {% block content %}
-        {% endblock %}
-                   <footer class="container_12 clearfix">
-                    <div class="grid_12">
-                        Copyright &copy; 2011.<a target="blank" href="http://igoscenter.fpmipa.upi.edu">POSS UPI</a> & <a href="">LabNet</a>
-                    </div>
-                </footer>
-            </section>
-            <!-- Main Section End -->
-        </section>
-    </div>
-    
-    <!-- MAIN JAVASCRIPTS -->
-    
-    
-    <!-- MAIN JAVASCRIPTS END -->
-
-    <!-- LOADING SCRIPT -->
-    <script>
-    $(window).load(function(){
-        $("#loading").fadeOut(function(){
-            $(this).remove();
-            $('body').removeAttr('style');
-        });
-    });
-    </script>
-    
-    <!-- LOADING SCRIPT -->
-    
-    <!-- jQplot SETUP -->
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="lib/jqplot/excanvas.js"></script>
-    <![endif]-->
-  
-    <script>
-    $(function() {
-        var root = $("#wizard").scrollable();
-        // some variables that we need
-        var api = root.scrollable();
-        // validation logic is done inside the onBeforeSeek callback
-        api.onBeforeSeek(function(event, i) {
-        // we are going 1 step backwards so no need for validation
-            if (api.getIndex() < i) {
-            // 1. get current page
-            var page = root.find(".page").eq(api.getIndex()),
-            // 2. .. and all required fields inside the page
-            inputs = page.find("[required]").removeClass("error"),
-            // 3. .. which are empty
-            empty = inputs.filter(function() {
-            return $(this).val().replace(/\s*/g, '') == '';
-            });
-            // if there are empty fields, then
-                if (empty.length) {
-                // add a CSS class name "error" for empty & required fields
-                    empty.addClass("error");
-                // cancel seeking of the scrollable by returning false
-                return false;
-                }
-            }
-        // update status bar
-        $("#status li").removeClass("active").eq(i).addClass("active");
-        });
-        // if tab is pressed on the next button seek to next page
-        root.find("button.next").keydown(function(e) {
-        if (e.keyCode == 9) {
-            // seeks to next tab by executing our validation routine
-            api.next();
-            e.preventDefault();
-        }
-        });
-    });
-</script>
-    <!-- jQplot SETUP END -->
+				<nav>
+			<ul id="nav">
+				<li class="i_house"><a href="/dashboard/"><span>Dashboard</span></a></li>
+				<li class="i_linux"><a><span>Virtual Server Factory</span></a><ul>
+					<li><a href="/factory/new"><span>Register New Server</span></a></li>
+					<li><a href="/factory/"><span>List Of Registered Server</span></a></li>
+					<li><a href="form.html"><span>List Of Running Server</span></a></li>
+				</ul></li>
+				<li class="i_book"><a href="form.html"><span>Log Center</span></a></li>
+				<li class="i_duplicate"><a><span>Backup Center</span></a></li>
+			</ul>
+		</nav>	
+		{% block content %}
+		{% endblock %}
+		<footer>Copyright by bramandityo.com 2012</footer>
 </body>
-
 </html>

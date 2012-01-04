@@ -12,7 +12,7 @@ import cherrypy
 V_PREFIX = os.popen("vserver-info APPDIR SYSINFO | grep \"prefix:\" | cut -d \":\" -f2").read().strip()
 V_ROOTDIR = os.popen("vserver-info APPDIR SYSINFO | grep \"Rootdir:\" | cut -d \":\" -f2").read().strip()
 V_CONFDIR = os.path.join(V_PREFIX,'etc/vservers')
-API_DIR = os.path.dirname( os.path.realpath( __file__ ) )
+API_DIR = os.path.realpath( os.path.dirname( __file__ ) )
 
 HOSTNAME = socket.gethostname()
 
@@ -44,9 +44,10 @@ class Vps:
     # Fungsi untuk parser config dari setiap vps
     def get_conf(self):
         if self.on_server == True :
-            vdir = os.path.join(V_CONFDIR,self.nama)      
-            self.ip = open(vdir+'/interfaces/0/ip','r').read().strip().replace('\n','')
-            self.memory = open(vdir+'/cgroup/memory.limit_in_bytes','r').read().strip().replace('\n','')
+            self.vdir = os.path.join(V_CONFDIR,self.nama)      
+            self.ip = open(self.vdir+'/interfaces/0/ip','r').read().strip().replace('\n','')
+	    self.context = open(self.vdir+'/context','r').read().strip().replace('\n','')
+            self.memory = open(self.vdir+'/cgroup/memory.limit_in_bytes','r').read().strip().replace('\n','')
         elif self.on_server == False :
             return "VPS %s tidak ada" % self.nama 
 	    
@@ -55,12 +56,11 @@ class Vps:
         if self.on_server == True :
             ip = self.ip 
             mem = str(int(self.memory)*250)
-            vdir = os.path.join(V_CONFDIR,self.nama)
-            ip_hendler = open(vdir+'/interfaces/0/ip','w')
+            ip_hendler = open(self.vdir+'/interfaces/0/ip','w')
             ip_hendler.write(ip)
             ip_hendler.close()
                     
-            mem_hendler = open(vdir+'/cgroup/memory.limit_in_bytes','w')
+            mem_hendler = open(self.vdir+'/cgroup/memory.limit_in_bytes','w')
             mem_hendler.write(mem)
             mem_hendler.close()
         elif self.on_server == False :
@@ -76,16 +76,22 @@ class Vps:
             return "Vps %s tidak ada" % self.nama
 	
     def get_stat(self):
-	pass
+	run = os.path.exists(self.vdir+'/run')
+	print self.vdir+'/run'
+	if run == True :
+	    self.status = 'Running'
+	elif run == False :
+	    self.status = "Sleep"
 
 class VpsServer:
-    vps_obj= []
+    vps_obj= list()
     vps_list = os.listdir(V_ROOTDIR)
     vps_list.remove('.pkg')
     for vps in vps_list :
         VPS = Vps()
 	VPS.get(vps)
 	VPS.get_conf()
+	VPS.get_stat()
 	vps_obj.append(VPS)
 	    
     def get_available_ip(self):

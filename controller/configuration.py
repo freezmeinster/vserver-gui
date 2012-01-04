@@ -5,4 +5,4 @@ class Controller:
     
     @cherrypy.expose
     def index(self):
-        return render("configuration/index.html",url_name='configuration')
+        return render("configuration/index.html")

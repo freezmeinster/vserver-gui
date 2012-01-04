@@ -6,12 +6,8 @@ class Controller:
     
     @cherrypy.expose
     def index(self):
-        return render("login.html",url_name='login')
+        return render("form.html")
         
     @cherrypy.expose
     def dashboard(self,**kwargs):
-        vserver = VpsServer()
-        data = {
-                'list_vps' : vserver.vps_obj
-            }
-        return render("dashboard.html",data,url_name='dashboard')
+        return render("dashboard.html")

@@ -4,5 +4,9 @@ from lib.template_loader import render
 class Controller:
     
     @cherrypy.expose
-    def index(self):
-        return render("resource/index.html",url_name='resource')
+    def about(self):
+        return render("resource/about.html")
+        
+    @cherrypy.expose
+    def status(self):
+        return render("resource/status.html")

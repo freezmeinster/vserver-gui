@@ -1,141 +1,50 @@
 {% extends 'base.html' %}
+
 {% block content %}
-       <section>
-                <header class="container_12 clearfix">
-                    <div class="grid_12">
-                        <h1>Cloud Factory</h1>
-                    </div>
-                </header>
-                <section class="container_12 clearfix">
-                    <div class="grid_12">
-                        <!-- the form --> 
-                        <form action="/factory/build/" novalidate>
-                         
-                            <div id="wizard"> 
-                                
-                                <nav>
-                                    <ul id="status"> 
-                                        <li class="active"><strong>1.</strong>Cloud Specification</li> 
-                                        <li><strong>2.</strong> Cloud Information</li> 
-                                        <li><strong>3.</strong> Finalize</li> 
-                                    </ul>
-                                </nav>
-                         
-                                <div class="items"> 
-                         
-                                    <!-- page1 --> 
-                                    <section class="page"> 
-                         
-                                        <header> 
-                                            <h2>
-                                                <strong>Step 1: </strong>Cloud Specification
-                                                <em>Enter your Cloud Specification here:</em> 
-                                            </h2>
-                                        </header> 
+   <section id="content">
+		
+		
+		
+			<div class="g12">
+			<h1>List Of Registered Server</h1>
+			
+			<table class="datatable">
+				<thead>
 
-                                        <section>
-                                            <ul class="clearfix">
-                                                <!-- email --> 
-                                                <li class="required"> 
-                                                    <label> 
-                                                        <strong>1.</strong> Enter Your Cloud Name <span>*</span><br /> 
-                                                        <input type="text" class="full" name="name" placeholder="as" required="required"  />
-                                                    </label> 
-                                                </li> 
-                                                <li class="double"> 
-                                                    <label> 
-                                                        <strong>2.</strong> Choose a memory for your Cloud <span>*</span><br /> 
-                                                        <select name="memory" class="selector hover" style="opacity:0;" required="">
-                                                            <option value="">-- please choose --</option>
-                                                            <option value="64">64 Mb</option>
-                                                            <option value="128">128 Mb</option>
-                                                            <option value="265">256 Mb</option>
-                                                            <option value="384">384 Mb</option>
-                                                            <option value="512">512 Mb</option>
-                                                            <option value="896">896 Mb</option>
-                                                            <option value="1024">1024 Mb</option>
-                                                        </select>
-                                                    </label> 
-               
+					<tr>
+						<th>VM Name</th>
+						<th>Amount of Memory</th>
+                                                <th>Context Number</th>
+						<th>IP Address</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+                                    {% for vps in list_vps %}
+					<tr class="odd gradeX">
+						<td>{{ vps.nama }}</td>
+						<td>{{ vps.memory }}</td>
+						<td>{{ vps.context }}</td>
+                                                <td>{{ vps.ip }}</td>
+						<td>{{ vps.status }}</td>
+						<td class="center">X</td>
+                                        </tr>
+                                    {% endfor %}
+					<tfoot>
 
-                                                    <label> 
-                                                        <strong>3.</strong> Choose an IP for your Cloud <span>*</span><br /> 
-                                                        <select name="ip" class="selector hover" style="opacity:0;" required="">
-                                                        {% for data in ip %}
-                                                        <option value="{{ data }}">{{ data }}</option>
-                                                        {% endfor %}
-                                                        </select>
-                                                    </label> 
-                                                </li> 
-                                            </ul>
-                                        </section>
-                                        
-                                        <footer class="clearfix">
-                                            <button type="button" class="next fr">Proceed &raquo;</button> 
-                                        </footer>
-                         
-                                    </section> 
-                         
-                                    <!-- page2 --> 
-                                    <section class="page"> 
-                         
-                                        <header>
-                                            <h2>
-                                                <strong>Step 2: </strong> System Specification <b></b> 
-                                                <em>Tell about administration information:</em> 
-                                            </h2>
-                                        </header>
-                         
-                                        <section>
-                                            <ul class="double">
-                                                <li> 
-                                                    <label> 
-                                                        <strong>1.</strong> Enter Password for Cloud <span>*</span><br /> 
-                                                        <input type="password" class="full"  name="passwd1" required /> 
-                                                    </label> 
-                                                     <label> 
-                                                        <strong>2.</strong> Enter same password again <span>*</span><br /> 
-                                                        <input type="password" class="full" name="passwd2" required />  
-                                                    </label> 
-                                                </li>
-                                            </ul> 
-                                        </section>
-                                        
-                                        <footer class="clearfix">
-                                            <button type="button" class="prev fl">&laquo; Back</button> 
-                                            <button type="button" class="next fr">Proceed &raquo;</button> 
-                                        </footer>
-                         
-                                    </section> 
-                         
-                                    <!-- page3 --> 
-                                    <section class="page"> 
-                         
-                                        <header> 
-                                            <h2>
-                                                <strong>Step 3: </strong> Congratulations!
-                                                <em>Your Cloud will build after you press "Build" button.</em>
-                                            </h2>
-                                        </header> 
-                         
-                                        <section>
-                                            <h3>Thank you for using our service!</h3>
-                                        </section>
-                         
-                                        <footer class="clearfix">
-                                            <button type="button" class="prev">&laquo; Back</button>
-                                            <input type="submit" class="next fr" value="Build"/>
-                                        </footer>
-                         
-                                    </section> 
-                         
-                         
-                                </div><!--items--> 
-                         
-                            </div><!--wizard--> 
-                         
-                        </form> 
-                         
-                    </div>
-                </section>
+					<tr>
+						<th>VM Name</th>
+						<th>Amount of Memory</th>
+                                                <th>Context Number</th>
+						<th>IP Address</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+
+			
+		</section><!-- end div #content -->
 {% endblock %}

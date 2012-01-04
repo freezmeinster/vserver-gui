@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section id="content">
+        <div class="g10">
+            <form id="form" autocomplete="off" method="post" action="submit.php">
+                <fieldset>
+		    <label>Virtual Machine Spesification</label>
+		    <section>
+                        <label for="required_field">Virtual Machine Name</label>
+			<div><input class="text" id="required_field" name="required_field" required="" type="text"></div>
+		    </section>
+		    <section>
+                        <label for="required_field_msg">Memory Amount</span></label>
+		        <div>
+                            <div data-max="1024" data-step="128" data-range="min" data-value="64" data-connect="slider_connect" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-slider-range-min ui-widget-header" style="width: 18%;"></div><a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 18%;"></a></div>
+                            <input required="" id="slider_connect" name="memory" type="number" class="w_10 text" readonly="readonly"/> MB
+                        </div>
+		    </section>
+	            <section>
+			<label for="dropdown">IP Address</label>
+			<div>					
+			<div class="selector" id="uniform-dropdown">
+                            <select required="" id="dropdown" name="dropdown" style="opacity: 0;">
+				<option value="Broccoli">192.168.70.1</option>
+				<option value="Broccoli">192.168.70.1</option>
+                                <option value="Broccoli">192.168.70.1</option>
+			    </select></div>
+			</div>
+		    </section>
+                </fieldset>
+                <fieldset>
+		    <label>Operating System Information</label>
+                    <section>
+			<label for="password">Full Automatic Backup</label>
+                            <div>
+				<input type="checkbox" id="agreed" >
+			    </div>
+		    </section>
+                    <section>
+			<label for="password">Automatic start when Host server start</label>
+                            <div>
+				<input type="checkbox" id="agreed" >
+			    </div>
+		    </section>
+                    <section>
+			<label for="password">Support Server Motion&trade;</label>
+                            <div>
+				<input type="checkbox" id="agreed" >
+			    </div>
+		    </section>
+                    <section>
+                        <label for="password">Password<br><span>with confirmation</span></label>
+			    <div><input type="password" id="password" name="password" required=""></div>
+		    </section>
+		    <section>
+			<div><button>Create Vm</button><span class="wl_formstatus"></span></div>
+		    </section>
+                </fieldset>			
+            </form>
+        </div>
+    </section>
+{% endblock %}

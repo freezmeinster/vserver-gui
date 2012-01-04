@@ -2,16 +2,22 @@ import cherrypy
 import threading
 from lib.template_loader import render
 from vapi.vapi import VpsFactory
+from vapi.vapi import VpsServer
 
 class Controller:
     
     @cherrypy.expose
     def index(self):
-
+        server = VpsServer()
+        print server.vps_obj
         data = {
-            'ip' : cherrypy.server.allip ,
+            'list_vps' : server.vps_obj ,
              }
-        return render("factory/index.html",data,url_name='factory')
+        return render("factory/index.html",data)
+    
+    @cherrypy.expose
+    def new(self):
+        return render('factory/new.html')
     
     @cherrypy.expose
     def build(self,name,ip,memory,passwd1,passwd2):
