@@ -10,3 +10,7 @@ class Controller:
     @cherrypy.expose
     def status(self):
         return render("resource/status.html")
+        
+    @cherrypy.expose
+    def server_stock(self):
+        return render("server/stock.html")

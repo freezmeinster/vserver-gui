@@ -4,7 +4,6 @@ import os.path,sys
 sys.path.insert(0,os.path.join(os.path.dirname(__file__),'lib'))
 
 from model.user import User
-from vapi import vapi
 from lib import db_engine
 from controller import main,factory,resource,log,configuration
 import cherrypy
@@ -14,7 +13,6 @@ config = os.path.join(os.path.dirname(__file__),'vserver-gui.conf')
 cherrypy.config.update({
             'global' :  {
                     'tools.staticdir.root' : os.path.realpath(os.path.dirname(__file__)),
-                    'server.allip' : vapi.ALL_IP
                     }
         })                       
 

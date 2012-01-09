@@ -1,6 +1,5 @@
 import cherrypy
 from template_loader import render
-from vapi.vapi import VpsServer
 
 class Controller:
     
