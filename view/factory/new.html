@@ -2,7 +2,7 @@
 
 {% block content %}
     <section id="content">
-        <div class="g10">
+        <div class="g12">
             <form id="form" autocomplete="off" method="post" action="submit.php">
                 <fieldset>
 		    <label>Virtual Machine Spesification</label>
@@ -11,23 +11,22 @@
 			<div><input class="text" id="required_field" name="required_field" required="" type="text"></div>
 		    </section>
 		    <section>
-                        <label for="required_field_msg">Memory Amount</span></label>
+                        <label for="required_field_msg">Amount Of Memory</span></label>
 		        <div>
-                            <div data-max="1024" data-step="128" data-range="min" data-value="64" data-connect="slider_connect" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-slider-range-min ui-widget-header" style="width: 18%;"></div><a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 18%;"></a></div>
+                            <div data-max="1024" data-step="128" data-value="64" data-connect="slider_connect" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-slider-range-min ui-widget-header" style="width: 18%;"></div><a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 18%;"></a></div>
                             <input required="" id="slider_connect" name="memory" type="number" class="w_10 text" readonly="readonly"/> MB
                         </div>
 		    </section>
-	            <section>
-			<label for="dropdown">IP Address</label>
-			<div>					
-			<div class="selector" id="uniform-dropdown">
-                            <select required="" id="dropdown" name="dropdown" style="opacity: 0;">
-				<option value="Broccoli">192.168.70.1</option>
-				<option value="Broccoli">192.168.70.1</option>
-                                <option value="Broccoli">192.168.70.1</option>
-			    </select></div>
-			</div>
-		    </section>
+	           <section>
+							<label for="dropdown">IP Address</label>
+							<div>					
+							        <select name="ip" required="">
+										<option value="Apples">Apples</option>
+										<option value="Bananas">Bananas</option>
+										<option value="Oranges">Oranges</option>
+								</select>
+							</div>
+						</section>
                 </fieldset>
                 <fieldset>
 		    <label>Operating System Information</label>
@@ -56,7 +55,8 @@
 		    <section>
 			<div><button>Create Vm</button><span class="wl_formstatus"></span></div>
 		    </section>
-                </fieldset>			
+                </fieldset>
+        
             </form>
         </div>
     </section>
