@@ -21,15 +21,15 @@
 					</tr>
 				</thead>
 				<tbody>
-                                    {% for vps in list_vps %}
+                                    {% for vps in list_vps.iteritems() %}
 					<tr class="odd gradeX">
-						<td>{{ vps.nama }}</td>
-						<td>{{ vps.memory }}</td>
-						<td>{{ vps.context }}</td>
-                                                <td>{{ vps.ip }}</td>
-						<td class="center">{{ vps.get_stat() }}</td>
+						<td>{{ vps[1]['nama'] }}</td>
+						<td>{{ vps[1]['memory'] }}</td>
+						<td>{{ vps[0] }}</td>
+                                                <td>{{ vps[1]['ip'] }}</td>
+						<td class="center">{{ vps[1]['status'] }}</td>
 						<td>
-                                                    {% if vps.get_stat() == 'Sleep' %}
+                                                    {% if vps[1]['status'] == 'Sleep' %}
                                                     <a title="i_eject" class="btn i_eject"></a></a>
                                                     <a title="i_play" class="btn i_play"></a>
                                                     {% endif %}

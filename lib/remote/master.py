@@ -1,7 +1,10 @@
-import Pyro.core
-Pyro.core.initClient()
-info = Pyro.core.getProxyForURI("PYROLOC://192.168.70.254:4000/server")
+import Pyro4,hmac
+
+
+key = hmac.new("ServerIlkom")
+Pyro4.config.HMAC_KEY = key.hexdigest()
+
+server = Pyro4.Proxy("PYRO:server@192.168.70.254:4000")
 
 def VpsList():
-    list = info.get_class()
-    return list.get_registered_vps()
+    return server.registered_vps()
